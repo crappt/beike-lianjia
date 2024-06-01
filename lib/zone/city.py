@@ -9,6 +9,7 @@
 import sys
 from lib.utility.version import PYTHON_3
 from lib.utility.log import *
+from symbol import eval_input # type: ignore
 
 cities = {
     'bj': '北京',
@@ -32,6 +33,9 @@ cities = {
     'wh': '武汉',
     'xm': '厦门',
     'yt': '烟台',
+    'xinxiang': '新乡', 
+    'zz': '郑州',
+    
 }
 
 
@@ -76,7 +80,7 @@ def get_city():
         prompt = create_prompt_text()
         # 判断Python版本
         if not PYTHON_3:  # 如果小于Python3
-            city = raw_input(prompt)
+            city = eval_input(prompt)
         else:
             city = input(prompt)
     elif len(sys.argv) == 2:
